@@ -11,7 +11,7 @@ This project implements a converter from **Regular Expressions (Regex)** to **De
 ## How it works
 
 ### It has 2 main steps:
-- reads the regular expresion and the testcases from [LFA-Assignment2_Regex_DFA.json](LFA-Assignment2_Regex_DFA.json) (check the file to see the format of the json, it needs to be in the same folder with the executoable or a folder higher)
+- reads the regular expresion and the testcases from [LFA-Assignment2_Regex_DFA.json](LFA-Assignment2_Regex_DFA.json) (check the file to see the format of the json, it needs to be in the same folder with the executoable or one level above)
 - transform a regular expresion to a lambda-nfa
   - Transform the regular expresion in a postfix form using the Shunting-Yard algorithm
   - Build an lambda-nfa using Thompson algorithm
