@@ -14,8 +14,13 @@
 using json=nlohmann::json;
 
 int main() {
-    std::ifstream file("../LFA-Assignment2_Regex_DFA.json");
-    json data=json::parse(file);
+    std::ifstream file;
+    try {
+        file=std::ifstream("../LFA-Assignment2_Regex_DFA.json");
+    }catch(...) {
+        file=std::ifstream("LFA-Assignment2_Regex_DFA.json");
+    }
+        json data=json::parse(file);
     for (auto entry:data) {
         std::string name=entry["name"].get<std::string>();
         std::string regex=entry["regex"].get<std::string>();

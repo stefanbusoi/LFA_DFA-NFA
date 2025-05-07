@@ -6,7 +6,6 @@
 #include <queue>
 
 #include "NFA.h"
-#define debug(x) std::cout<<__FILE__<<" "<<__LINE__<<" "<<#x<<" "<<x<<'\n'
 NFA_LAMBDA::NFA_LAMBDA(std::set<std::string> Q, std::set<std::string> s_symbols, std::map<std::string, std::map<std::string, std::set<std::string>>> q, std::string q0, std::set<std::string> N):
     states(std::move(Q)),
     symbols(std::move(s_symbols)),
@@ -20,7 +19,6 @@ NFA_LAMBDA::NFA_LAMBDA(const std::string &regex) {
     std::string revPolishNot = PostFixRegex(regex);
     std::stack<NFA_LAMBDA> st;
     int index=0;
-    debug(index);
     std::cout<<revPolishNot<<std::endl;
     for (auto token:revPolishNot) {
         if (isSymbol(token)) {
