@@ -50,8 +50,6 @@ NFA NFA::readFromFile(const std::string &FilePath) {
                     while (stream) {
                         stream>>specialState;
                         if (specialState=='S') {
-                            if (initial_State!="")
-                                throw std::invalid_argument("NFA::initial_State, Too many initialState");
                             initial_State=stateString;
                         }else if (specialState=='F') {
                             final_States.insert(stateString);
@@ -84,15 +82,15 @@ NFA NFA::readFromFile(const std::string &FilePath) {
     }
     for (const auto& [state, map2]:transitions) {
         if (!states.contains(state)) {
-            throw std::invalid_argument("DFA::state\""+state+"\"not found");
+            throw std::invalid_argument("NFA::state\""+state+"\"not found");
         }
         for (const auto&[simb,nextStates]:map2) {
             if (!symbols.contains(simb)) {
-                throw std::invalid_argument("DFA::symbol\""+simb+"\" not found");
+                throw std::invalid_argument("NFA::symbol\""+simb+"\" not found");
             }
             for (const auto& nextState:nextStates) {
                 if (!states.contains(nextState)) {
-                    throw std::invalid_argument("DFA::state\""+nextState+"\" not found");
+                    throw std::invalid_argument("NFA::state\""+nextState+"\" not found");
                 }
             }
         }
@@ -112,6 +110,7 @@ bool NFA::testWord(const std::vector<std::string> &word) {
             for (const auto& state:nextState(CurrentState,letter))
                 NextStates.insert(state);
         }
+        
         CurrentStates=NextStates;
     }
     for (const auto& state:CurrentStates) {
