@@ -16,9 +16,13 @@ using json=nlohmann::json;
 
 int main() {
   CFG x({{'S',"SS"},
-    {'S',"(S)"},
-  {'S',""}},'S');
-
+         {'S',"(S)"},
+         {'S',""}},'S');
+/*
+This is if you want S-> 'aSb' | '' 
+    CFG x({{'S',"aSb"},
+         {'S',""}},'S');
+*/
   std::vector<std::string>ans = x.getElements(10 ,50);
   for (const auto& word:ans) {
     std::cout<<word<<std::endl;
