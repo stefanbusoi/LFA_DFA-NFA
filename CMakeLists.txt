@@ -10,13 +10,17 @@
     )
     FetchContent_MakeAvailable(json)
 
-    add_executable(RegexToDFA main.cpp
-            DFA.cpp
-            DFA.h
-            NFA.cpp
-            NFA.h
-            NFA_LAMBDA.cpp
-            NFA_LAMBDA.hpp)
+    add_executable(RegexToDFA Source/main.cpp
+            Source/DFA.cpp
+            Source/DFA.h
+            Source/NFA.cpp
+            Source/NFA.h
+            Source/NFA_LAMBDA.cpp
+            Source/NFA_LAMBDA.hpp
+            Source/CFG.cpp
+            Source/CFG.hpp
+            Source/RandomNumberGenerator.cpp
+            Source/RandomNumberGenerator.hpp)
 
 
     target_link_libraries(RegexToDFA PRIVATE nlohmann_json::nlohmann_json)
