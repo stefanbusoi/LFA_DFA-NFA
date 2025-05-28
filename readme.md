@@ -1,11 +1,11 @@
-# Regex to DFA
+# Context free grammar
 
 This project implements a context free grammar using C++. 
 
 ## Project structure
 ### I have 1 classes
 - GCD (this manages all things about a context free grammar)
-  
+  it has 2 paramaters, a vector of productions(a symbol and a resulting string from that symbol) and the starting symbol of the GCD
 ## How it works
   The context free grammar consider only [A-Z] as being nonterminals, anything else is terminal
 ### How it generate strings:
